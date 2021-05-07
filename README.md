@@ -1,7 +1,7 @@
 # BMICalculator
 This my BMICalculator project in java and javaFX
 This project was made under Object - Oriented Course; Topic Java Fx;
-The author of this project: Meerbek Akimzhanov
+The author of this project: **Meerbek Akimzhanov**
 
 ![Alt Text](https://i.postimg.cc/0QfrHFYX/BIM-Calculator.gif)
 # How to Use
