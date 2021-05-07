@@ -32,22 +32,33 @@ public class BMICalculatorController {
 
     @FXML
     void onCalculatePresed(ActionEvent event) {
-        float weight = Float.parseFloat(weightTextField.getText());
-        float height = Float.parseFloat(heightTextField.getText());
-        float result = (convFactor * weight)/(height*height);
-        String stringResult = String.format("%.02f", result);
-        BMIResult.setText(stringResult);
-        if (result<18){
-            resultViewBox.setStyle("-fx-background-color:   #FEB132");
+        try {
+
+            float weight = Float.parseFloat(weightTextField.getText());
+            float height = Float.parseFloat(heightTextField.getText());
+            float result = (convFactor * weight)/(height*height);
+            String stringResult = String.format("%.02f", result);
+            BMIResult.setText(stringResult);
+            if (result<18){
+                resultViewBox.setStyle("-fx-background-color:   #FEB132");
+            }
+            else if (result<24.9){
+                resultViewBox.setStyle("-fx-background-color:   #30A232");
+            }
+            else if (result<29.9){
+                resultViewBox.setStyle("-fx-background-color:   #E96024");
+            }else{
+                resultViewBox.setStyle("-fx-background-color:   #C0101B");
+            }
+        } catch(Exception e) {
+            if (e.getMessage() == "empty String"){
+                BMIResult.setText("The fields can not be empty");
+            }
+            else {
+                BMIResult.setText("The fields must be in numbers");
+            }
         }
-        else if (result<24.9){
-            resultViewBox.setStyle("-fx-background-color:   #30A232");
-        }
-        else if (result<29.9){
-            resultViewBox.setStyle("-fx-background-color:   #E96024");
-        }else{
-            resultViewBox.setStyle("-fx-background-color:   #C0101B");
-        }
+
 
     }
 
